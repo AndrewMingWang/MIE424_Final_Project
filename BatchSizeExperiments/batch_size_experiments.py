@@ -6,9 +6,6 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-
 def train_model():
     # Specify device
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -96,6 +93,7 @@ def train_model():
         print("Num forgetting events: " + str(torch.sum(forgetting_events.long()).item()))
         print("")
 
+    # Saves a (60,000,) vector with the number of forgetting events per example
     torch.save(forgetting_events, "./forgetting_events.pt")
 
 if __name__ == "__main__":
