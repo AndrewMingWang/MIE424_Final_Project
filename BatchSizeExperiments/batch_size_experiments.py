@@ -97,4 +97,9 @@ def train_model():
     torch.save(forgetting_events, "./forgetting_events.pt")
 
 if __name__ == "__main__":
+    # Set seed (should be 1 - 5 according to paper)
+    seed = 1
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+
     train_model()
