@@ -11,6 +11,9 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 
+# TO USE THIS ADD A "data" folder to the "BatchSizeExperiments" folder
+# Then run this file
+
 # Setup transforms for MNIST data
 all_transforms = [
     transforms.ToTensor(),
