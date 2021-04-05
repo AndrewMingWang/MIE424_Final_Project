@@ -98,16 +98,42 @@ def train(args, model, device, trainset, model_optimizer, epoch,
         loss = criterion(outputs, targets)
         _, predicted = torch.max(outputs.data, 1)
 
-        # Update statistics and loss
-        acc = predicted == targets
-        for j, index in enumerate(batch_inds):
+        ################## Update statistics and loss ###################
+        num_stat_batches = 10
+    
+        # Get trainset indices for stats batch 
+        stat_batch_start_ind = (batch_start_ind * num_stat_batches) % len(trainset.targets)
+        stat_batch_inds = trainset_permutation_inds[stat_batch_start_ind:
+                                                    min(stat_batch_start_ind+(num_stat_batches*batch_size),len(trainset.targets))]
+        
+        # Get stat batch inputs and targets, transform them appropriately 
+        transformed_statbatch = []
+        for ind in stat_batch_inds:
+            transformed_statbatch.append(trainset.__getitem__(ind)[0])
+        stat_inputs = torch.stack(transformed_statbatch)
+        stat_targets = torch.LongTensor(
+            np.array(trainset.targets)[stat_batch_inds].tolist())
+        
+        # Map to available device
+        stat_inputs, stat_targets = stat_inputs.to(device), stat_targets.to(device)
+        
+        # Evaluate stat batch 
+        model.eval()
+        stat_outputs = model(stat_inputs)
+        stat_loss = criterion(stat_outputs, stat_targets)
+        _, stat_predicted = torch.max(stat_outputs.data, 1)
+        model.train()
+        
+        acc = stat_predicted == stat_targets
+        for j, index in enumerate(stat_batch_inds):
 
             # Get index in original dataset (not sorted by forgetting)
             index_in_original_dataset = train_indx[index]
 
             # Compute missclassification margin
-            output_correct_class = outputs.data[j, targets[j].item()]
-            sorted_output, _ = torch.sort(outputs.data[j, :])
+            output_correct_class = stat_outputs.data[
+                j, stat_targets[j].item()]  # output for correct class
+            sorted_output, _ = torch.sort(stat_outputs.data[j, :])
             if acc[j]:
                 # Example classified correctly, highest incorrect class is 2nd largest output
                 output_highest_incorrect_class = sorted_output[-2]
@@ -120,11 +146,13 @@ def train(args, model, device, trainset, model_optimizer, epoch,
             # Add the statistics of the current training example to dictionary
             index_stats = example_stats.get(index_in_original_dataset,
                                             [[], [], []])
-            index_stats[0].append(loss[j].item())
+            index_stats[0].append(stat_loss[j].item())
             index_stats[1].append(acc[j].sum().item())
             index_stats[2].append(margin)
             example_stats[index_in_original_dataset] = index_stats
-
+        
+        #######################################################################
+        
         # Update loss, backward propagate, update optimizer
         loss = loss.mean()
         train_loss += loss.item()
