@@ -65,10 +65,10 @@ def train(args, model, device, trainset, optimizer, epoch, example_stats):
 
     # Get permutation to shuffle trainset
     trainset_permutation_inds = npr.permutation(
-        np.arange(len(trainset.train_labels)))
+        np.arange(len(trainset.targets)))
 
     for batch_idx, batch_start_ind in enumerate(
-            range(0, len(trainset.train_labels), batch_size)):
+            range(0, len(trainset.targets), batch_size)):
 
         # Get trainset indices for batch
         batch_inds = trainset_permutation_inds[batch_start_ind:
@@ -80,7 +80,7 @@ def train(args, model, device, trainset, optimizer, epoch, example_stats):
             transformed_trainset.append(trainset.__getitem__(ind)[0])
         inputs = torch.stack(transformed_trainset)
         targets = torch.LongTensor(
-            np.array(trainset.train_labels)[batch_inds].tolist())
+            np.array(trainset.targets)[batch_inds].tolist())
 
         # Map to available device
         inputs, targets = inputs.to(device), targets.to(device)
@@ -91,17 +91,43 @@ def train(args, model, device, trainset, optimizer, epoch, example_stats):
         loss = criterion(outputs, targets)
         _, predicted = torch.max(outputs.data, 1)
 
-        # Update statistics and loss
-        acc = predicted == targets
-        for j, index in enumerate(batch_inds):
+        
+        ################## Update statistics and loss ###################
+        num_stat_batches = 2
+    
+        # Get trainset indices for stats batch 
+        stat_batch_start_ind = (batch_start_ind * num_stat_batches) % len(trainset.targets)
+        stat_batch_inds = trainset_permutation_inds[stat_batch_start_ind:
+                                                    min(stat_batch_start_ind+(num_stat_batches*batch_size),len(trainset.targets))]
+        
+        # Get stat batch inputs and targets, transform them appropriately 
+        transformed_statbatch = []
+        for ind in stat_batch_inds:
+            transformed_statbatch.append(trainset.__getitem__(ind)[0])
+        stat_inputs = torch.stack(transformed_statbatch)
+        stat_targets = torch.LongTensor(
+            np.array(trainset.targets)[stat_batch_inds].tolist())
+        
+        # Map to available device
+        stat_inputs, stat_targets = stat_inputs.to(device), stat_targets.to(device)
+        
+        # Evaluate stat batch 
+        model.eval()
+        stat_outputs = model(stat_inputs)
+        stat_loss = criterion(stat_outputs, stat_targets)
+        _, stat_predicted = torch.max(stat_outputs.data, 1)
+        model.train()
+        
+        acc = stat_predicted == stat_targets
+        for j, index in enumerate(stat_batch_inds):
 
             # Get index in original dataset (not sorted by forgetting)
             index_in_original_dataset = train_indx[index]
 
             # Compute missclassification margin
-            output_correct_class = outputs.data[
-                j, targets[j].item()]  # output for correct class
-            sorted_output, _ = torch.sort(outputs.data[j, :])
+            output_correct_class = stat_outputs.data[
+                j, stat_targets[j].item()]  # output for correct class
+            sorted_output, _ = torch.sort(stat_outputs.data[j, :])
             if acc[j]:
                 # Example classified correctly, highest incorrect class is 2nd largest output
                 output_highest_incorrect_class = sorted_output[-2]
@@ -114,10 +140,12 @@ def train(args, model, device, trainset, optimizer, epoch, example_stats):
             # Add the statistics of the current training example to dictionary
             index_stats = example_stats.get(index_in_original_dataset,
                                             [[], [], []])
-            index_stats[0].append(loss[j].item())
+            index_stats[0].append(stat_loss[j].item())
             index_stats[1].append(acc[j].sum().item())
             index_stats[2].append(margin)
             example_stats[index_in_original_dataset] = index_stats
+        
+        #######################################################################
 
         # Update loss, backward propagate, update optimizer
         loss = loss.mean()
@@ -154,19 +182,19 @@ def test(args, model, device, testset, example_stats):
     model.eval()
 
     for batch_idx, batch_start_ind in enumerate(
-            range(0, len(testset.test_labels), test_batch_size)):
+            range(0, len(testset.targets), test_batch_size)):
 
         # Get batch inputs and targets
         transformed_testset = []
         for ind in range(
                 batch_start_ind,
                 min(
-                    len(testset.test_labels),
+                    len(testset.targets),
                     batch_start_ind + test_batch_size)):
             transformed_testset.append(testset.__getitem__(ind)[0])
         inputs = torch.stack(transformed_testset)
         targets = torch.LongTensor(
-            np.array(testset.test_labels)[batch_start_ind:batch_start_ind +
+            np.array(testset.targets)[batch_start_ind:batch_start_ind +
                                           test_batch_size].tolist())
 
         # Map to available device
@@ -275,6 +303,9 @@ use_cuda = not args.no_cuda and torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
 kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
+if use_cuda:
+    print("USING CUDA")
+
 # Set random seed for initialization
 torch.manual_seed(args.seed)
 if torch.cuda.is_available():
@@ -303,7 +334,7 @@ testset = datasets.MNIST(
 
 # Get indices of examples that should be used for training
 if args.sorting_file == 'none':
-    train_indx = np.array(range(len(trainset.train_labels)))
+    train_indx = np.array(range(len(trainset.targets)))
 else:
     try:
         with open(
@@ -321,18 +352,18 @@ else:
 
     # Remove the corresponding elements
     train_indx = np.setdiff1d(
-        range(len(trainset.train_labels)), elements_to_remove)
+        range(len(trainset.targets)), elements_to_remove)
 
 # Remove remove_n number of examples from the train set at random
 if args.keep_lowest_n < 0:
     train_indx = npr.permutation(np.arange(len(
-        trainset.train_labels)))[:len(trainset.train_labels) - args.remove_n]
+        trainset.targets)))[:len(trainset.targets) - args.remove_n]
 
 # Reassign train data and labels
-trainset.train_data = trainset.train_data[train_indx, :, :]
-trainset.train_labels = np.array(trainset.train_labels)[train_indx].tolist()
+trainset.data = trainset.data[train_indx, :, :]
+trainset.targets = np.array(trainset.targets)[train_indx].tolist()
 
-print('Training on ' + str(len(trainset.train_labels)) + ' examples')
+print('Training on ' + str(len(trainset.targets)) + ' examples')
 
 # Setup model and optimizer
 model = Net().to(device)
@@ -355,7 +386,7 @@ for epoch in range(args.epochs):
     epoch_time = time.time() - start_time
     elapsed_time += epoch_time
     print('| Elapsed time : %d:%02d:%02d' % (get_hms(elapsed_time)))
-
+    
     # Save the stats dictionary
     fname = os.path.join(args.output_dir, save_fname)
     with open(fname + "__stats_dict.pkl", "wb") as f:
