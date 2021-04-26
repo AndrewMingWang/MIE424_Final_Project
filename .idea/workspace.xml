@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cde066ed-c361-428b-96e0-d7ad77ff65b2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/BatchSizeAccuracies.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/batch0.05%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/batch_size_accuracy_experiments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/10%mnist9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/mnist9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/figures/permuted_mnist9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/CalculatePearsonCorrelation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch0.01%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch0.05%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch0.1%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch0.5%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch1%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed10.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed2.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed3.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed4.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed5.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed6.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed7.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed8.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch10%_forgetting_events_MNIST_seed9.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch100%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch15%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch5%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/batch50%_forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/cifar_corr.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed10.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed2.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed3.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed4.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed5.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed6.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed7.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed8.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_MNIST_seed9.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed1.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed10.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed2.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed3.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed4.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed5.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed6.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed7.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed8.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events/forgetting_events_PMNIST_seed9.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/avgPearsonCorrelation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/batch10%_accuracies_seed1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/batch64_accuracies_seed1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/batchrandom_accuracies_seed1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/batchrandom_accuracies_seed2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/plot10%MNIST.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/plotCIFAR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/plotMNIST.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BatchSizeExperiments/output/plotPMNIST.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchSizeExperiments/batch_size_experiments.py" beforeDir="false" afterPath="$PROJECT_DIR$/BatchSizeExperiments/batch_size_experiments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchSizeExperiments/datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/BatchSizeExperiments/datasets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchSizeExperiments/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/BatchSizeExperiments/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchSizeExperiments/plot_forgetting_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/BatchSizeExperiments/plot_forgetting_events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchSizeExperiments/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/BatchSizeExperiments/preprocessing.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1qgHs4hEtuQLyPu0mE4b84cHOqy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\Desktop\Year 4\_MIE424\FinalProject\BatchSizeExperiments\forgetting_events" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.plot_forgetting_events">
+    <configuration name="CalculatePearsonCorrelation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BatchSizeExperiments/forgetting_events" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\andre\Desktop\Year 4\_MIE424\FinalProject\BatchSizeExperiments\forgetting_events\CalculatePearsonCorrelation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="batch_size_accuracy_experiments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BatchSizeExperiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BatchSizeExperiments/batch_size_accuracy_experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="batch_size_experiments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BatchSizeExperiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BatchSizeExperiments/batch_size_experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="make_tensors" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BatchSizeExperiments/data/CIFAR/cifar-10-batches-py/pixel_data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BatchSizeExperiments/data/CIFAR/cifar-10-batches-py/pixel_data/make_tensors.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot_forgetting_events" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FinalProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BatchSizeExperiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BatchSizeExperiments/plot_forgetting_events.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.batch_size_experiments" />
+        <item itemvalue="Python.plot_forgetting_events" />
+        <item itemvalue="Python.CalculatePearsonCorrelation" />
+        <item itemvalue="Python.batch_size_accuracy_experiments" />
+        <item itemvalue="Python.make_tensors" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cde066ed-c361-428b-96e0-d7ad77ff65b2" name="Default Changelist" comment="" />
+      <created>1617494516195</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617494516195</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

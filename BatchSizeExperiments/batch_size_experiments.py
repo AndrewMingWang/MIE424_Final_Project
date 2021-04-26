@@ -5,22 +5,32 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
+import torchvision.models as models
 
-def train_model():
+def train_model(seed, k):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+
     # Specify device
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     # Specify dataset
-    data = MNISTDataset("./data/MNIST/processed")
+    dataset = "MNIST" # "PMNIST" "CIFAR"
+
+    data = MNISTDataset("./data/" + dataset + "/processed")
+    #data = CIFARDataset("./data/CIFAR/cifar-10-batches-py/output_data", "./data/CIFAR/cifar-10-batches-py/labels.txt")
     num_train_samples = len(data)
+    num_test_samples = len(data.test_examples)
     print("Training dataset has "+ str(num_train_samples) + " points.")
 
     # Specify model
-    model = Net().to(device)
+    #model = CIFARNet().to(device)
+    model = MNISTNet().to(device)
 
     # Specify hyperparameters
     num_epochs = 200
-    batch_size = 64
+    batch_size = int(float(k / 100) * num_train_samples)
+    print("Batch Size: " + str(batch_size))
     learning_rate = 0.01
     momentum = 0.5
 
@@ -47,6 +57,8 @@ def train_model():
     for epoch in range(num_epochs):
         train_loss_this_epoch = 0
         train_correct_this_epoch = 0
+        test_loss_this_epoch = 0
+        test_correct_this_epoch = 0
 
         start = time.time()
         # Training
@@ -87,19 +99,47 @@ def train_model():
             train_loss_this_epoch += loss.cpu().detach().numpy()
             train_correct_this_epoch += torch.sum(curr).item()
 
+        # Test accuracy
+        with torch.no_grad():
+            test_examples = data.test_examples.to(device)
+            test_labels = data.test_labels.to(device)
+
+            # Compute output for test examples
+            test_out = model(test_examples)
+
+            # Compute loss
+            test_loss = criterion(test_out, test_labels)
+            test_loss_this_epoch += test_loss.cpu().detach().numpy()
+
+            # Compute accuracy
+            test_correct_this_epoch += calc_num_correct(test_out, test_labels)
+
         print("Epoch " + str(epoch) + " (" + (str(time.time() - start)[0:4]) + "s):")
         print("Train loss: " + str(train_loss_this_epoch / num_train_samples))
         print("Train acc: " + str(train_correct_this_epoch / num_train_samples * 100) + "%")
+        print("Test acc: " + str(test_correct_this_epoch / num_test_samples * 100) + "%")
         print("Num forgetting events: " + str(torch.sum(forgetting_events.long()).item()))
         print("")
 
     # Saves a (60,000,) vector with the number of forgetting events per example
-    torch.save(forgetting_events, "./forgetting_events.pt")
+    torch.save(forgetting_events, "./batch" + str(k) + "%_forgetting_events_" + dataset + "_seed" + str(seed) + ".pt")
+
+    # Saves final test and train accuracies
+    file = open("./BatchSizeAccuracies.txt", "a")
+    file.write(str(train_correct_this_epoch / num_train_samples * 100) + "\n")
+    file.write(str(test_correct_this_epoch / num_test_samples * 100) + "\n")
+    file.write("\n")
+    file.close()
+
+
+def calc_num_correct(pred, labels):
+    pred, labels = pred.cpu(), labels.cpu()
+    pred_argmax = torch.argmax(pred, dim=1)
+    return torch.sum((torch.eq(pred_argmax, labels))).item()
 
 if __name__ == "__main__":
     # Set seed (should be 1 - 5 according to paper)
-    seed = 1
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
 
-    train_model()
+    batch_size_percentages = [0.05]
+    for k in batch_size_percentages:
+        train_model(seed=1, k=k)
