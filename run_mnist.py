@@ -93,7 +93,7 @@ def train(args, model, device, trainset, optimizer, epoch, example_stats):
 
         
         ################## Update statistics and loss ###################
-        num_stat_batches = 2
+        num_stat_batches = args.num_forget_batches
     
         # Get trainset indices for stats batch 
         stat_batch_start_ind = (batch_start_ind * num_stat_batches) % len(trainset.targets)
@@ -284,6 +284,11 @@ parser.add_argument(
     help='directory where to read sorting file from')
 parser.add_argument(
     '--output_dir', required=True, help='directory where to save results')
+parser.add_argument(
+    '--num_forget_batches',
+    type=int,
+    default=1,
+    help='number of mini-batches to sample each update for forgetting')
 
 # Enter all arguments that you want to be in the filename of the saved output
 ordered_args = [
