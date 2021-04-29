@@ -41,7 +41,7 @@ The above two scripts calculates the forgetting events and outputs each run as a
 In the following sections, we provide instructions to obtain the results from each of the experiments detailed in our report. They are organized by corresponding section number in the report. 
 
 ### 5.1.1 Distribution of Forgetting Events
-Run a chosen dataset and seed, run the corresponding `run_{mnist/cifar}.py` file. With the resulting pickle file saved under path `pickle_path`, you would call `plot(dataset, seed, pickle_path)` where dataset is the name of the dataset (MNIST,PMNIST or CIFAR10) and seed is the seed used for the experiment.
+Run a chosen dataset and seed, run the corresponding `run_{mnist/cifar}.py` file. With the resulting pickle file saved under path `pickle_path`, you would call `plot(dataset, seed, pickle_path)` within `plot.py`, where dataset is the name of the dataset (MNIST,PMNIST or CIFAR10) and seed is the seed used for the experiment.
 
 ### 5.1.2 Characteristics of Forgetful Examples
 ```
@@ -52,7 +52,7 @@ python run_cifar.py
     --noise_percent_labels 20
 ```
 
-The resulting files you will get are `...changed_labels.txt` and `_stats_dict.pkl`. To get the same plot as verifcation experiment #2, you would call `plot_exp2(<path_to_changed_labels.txt>, <path_to_stats_dict.pkl>, pickle_path)` where dataset is the name of the dataset (MNIST,PMNIST or CIFAR10) and seed is the seed used for the experiment.
+The resulting files you will get are `...changed_labels.txt` and `_stats_dict.pkl`. To get the same plot as verifcation experiment #2, you would call `plot_exp2(<path_to_changed_labels.txt>, <path_to_stats_dict.pkl>, pickle_path)` within `plot.py`, where dataset is the name of the dataset (MNIST,PMNIST or CIFAR10) and seed is the seed used for the experiment.
 
 ### 5.1.3 Data Removal & Generalization
 ```
