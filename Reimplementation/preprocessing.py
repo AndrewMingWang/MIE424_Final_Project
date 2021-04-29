@@ -11,7 +11,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 
-# TO USE THIS ADD A "data" folder to the "BatchSizeExperiments" folder
+# TO USE THIS ADD A "data" folder to the "Reimplementation" folder
 # Then run this file
 
 normalize = transforms.Normalize(

@@ -125,7 +125,7 @@ def train_model(seed, k):
     torch.save(forgetting_events, "./batch" + str(k) + "%_forgetting_events_" + dataset + "_seed" + str(seed) + ".pt")
 
     # Saves final test and train accuracies
-    file = open("./BatchSizeAccuracies.txt", "a")
+    file = open("output/BatchSizeAccuracies.txt", "a")
     file.write(str(train_correct_this_epoch / num_train_samples * 100) + "\n")
     file.write(str(test_correct_this_epoch / num_test_samples * 100) + "\n")
     file.write("\n")
